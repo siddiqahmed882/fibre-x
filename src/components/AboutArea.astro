@@ -1,0 +1,126 @@
+<section class="about-area">
+	<div class="wrapper">
+		<div class="grid">
+			<div class="left">
+				<img src="/assets/imgs/img3.png" alt="" />
+			</div>
+			<div class="right">
+				<div class="about-area__header">
+					<p>Our Story</p>
+					<h2>We Help IT Companies Scale Engineering Capacity</h2>
+				</div>
+				<div class="about-area__content">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus corporis
+						sit minus error quas, dignissimos quisquam assumenda aperiam odio, nulla
+						repudiandae ipsa? Omnis minima aspernatur maiores repellat earum, commodi
+						neque?
+					</p>
+					<ul>
+						<li>100% Client Satisfaction</li>
+						<li>World Class Worker</li>
+					</ul>
+				</div>
+				<footer class="about-area__footer flex">
+					<p>Join our team – come work with us.</p>
+					<a href=""><i class="fa-solid fa-phone-flip icon"></i>+123 456 7890</a>
+				</footer>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about-area {
+		background-color: var(--clr-primary-super-dark);
+		color: hsl(var(--clr-neutral-900));
+		padding: 4rem 0;
+	}
+
+	.grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.right {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1.5rem;
+	}
+
+	.about-area__header p {
+		color: var(--clr-primary-dark);
+		font-size: 1.5rem;
+	}
+
+	.about-area__header h2 {
+		font-size: 2.5rem;
+	}
+
+	.about-area__content {
+		padding: 1.5rem 0;
+		border-bottom: 1px solid hsl(var(--clr-neutral-900), 0.2);
+	}
+
+	.about-area__content p {
+		margin-bottom: 1rem;
+	}
+
+	.about-area__content ul {
+		padding-left: 2rem;
+		font-size: 1.25rem;
+	}
+
+	.about-area__content li {
+		padding-left: 1rem;
+	}
+
+	.about-area__content li::marker {
+		content: '\f00c';
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		line-height: 1;
+		text-rendering: auto;
+		font-family: 'Font Awesome 6 Free';
+		font-weight: 900;
+		text-align: center;
+		border-radius: 50%;
+		color: #2b6be0;
+	}
+
+	.about-area__footer {
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.about-area__footer a {
+		color: #2b6be0;
+		font-size: 1.5rem;
+	}
+
+	.about-area__footer .icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.75rem;
+		background-color: var(--clr-primary-dark);
+		color: hsl(var(--clr-neutral-900));
+		border-radius: 50%;
+		margin-right: 0.75rem;
+	}
+
+	@media screen and (min-width: 768px) {
+		.about-area {
+			padding: 4rem 0 0;
+		}
+
+		.grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.left {
+			transform: translateY(6rem);
+		}
+	}
+</style>

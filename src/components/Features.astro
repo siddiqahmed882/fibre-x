@@ -1,0 +1,22 @@
+---
+import CardOne from './CardOne.astro';
+---
+
+<section class="features mb-4">
+	<div class="wrapper">
+		<div class="flex">
+			<CardOne />
+			<CardOne />
+			<CardOne />
+		</div>
+	</div>
+</section>
+
+<style>
+	.flex {
+		--gap: 1.5rem;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+</style>

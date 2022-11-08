@@ -1,0 +1,101 @@
+:root {
+	--clr-primary: hsl(198, 95%, 36%);
+	--clr-primary-dark: hsl(219, 84%, 40%);
+	--clr-primary-super-dark: hsl(219, 48%, 13%);
+
+	--clr-neutral-900: 0, 0%, 96%;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1.5;
+	color: #000;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+button {
+	outline: none;
+	border: none;
+	background: transparent;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+label,
+input[type='text'],
+input[type='email'],
+textarea {
+	display: block;
+	font-size: inherit;
+	font-family: inherit;
+	width: 100%;
+	border: none;
+	outline: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+/* utilities */
+
+.wrapper {
+	width: calc(100% - 2rem);
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.btn {
+	display: inline-block;
+	padding: 0.75em 2.25em;
+	font-weight: 700;
+	text-transform: capitalize;
+	transition: all 0.35s ease-in-out;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.btn-primary {
+	background-color: var(--clr-primary-dark);
+}
+
+.grid {
+	display: grid;
+	gap: var(--gap, 1rem);
+}
+
+.flex {
+	display: flex;
+	gap: var(--gap, 1rem);
+}
+
+.mb-4 {
+	margin-bottom: 4rem;
+}

@@ -1,0 +1,194 @@
+---
+---
+
+<header class="header">
+	<div class="wrapper">
+		<nav class="navbar">
+			<a href="" class="logo">Logo</a>
+			<ul id="nav-items" class="nav__items" aria-expanded="false">
+				<li class="nav__item"><a href="/" class="nav__link">Home</a></li>
+				<li class="nav__item"><a href="/" class="nav__link">About</a></li>
+				<li class="nav__item"><a href="/" class="nav__link">Services</a></li>
+				<li class="nav__item"><a href="/" class="nav__link">Contact</a></li>
+			</ul>
+			<button class="hamburger" aria-controls="nav-items">
+				<div class="inner"></div>
+			</button>
+		</nav>
+	</div>
+</header>
+
+<script>
+	const hamburger = document.querySelector('.hamburger') as HTMLButtonElement;
+	const navbar = document.querySelector('#nav-items') as HTMLUListElement;
+	document.addEventListener('click', handleDocumentClick);
+	window.addEventListener('resize', resetNavState);
+
+	function handleDocumentClick(e: PointerEvent) {
+		const targetElem = e.target as HTMLElement;
+		e.stopPropagation();
+
+		// if clicked inside nav-items then do nothing
+		if (targetElem.closest('#nav-items')) return;
+
+		if (targetElem.closest('.hamburger')) toggleNavState();
+		else collapseNav();
+	}
+
+	function toggleNavState() {
+		if (hamburger.classList.contains('active')) collapseNav();
+		else expandNav();
+	}
+
+	function expandNav() {
+		hamburger.classList.add('active');
+		navbar.ariaExpanded = 'true';
+		navbar.style.maxHeight = navbar.scrollHeight + 'px';
+		navbar.classList.add('animating');
+		document.body.style.overflow = '';
+		navbar.addEventListener(
+			'transitionend',
+			() => {
+				navbar.ariaExpanded = 'true';
+			},
+			{ once: true }
+		);
+	}
+
+	function collapseNav() {
+		hamburger.classList.remove('active');
+		document.body.style.overflow = '';
+		navbar.style.maxHeight = '';
+		navbar.addEventListener(
+			'transitionend',
+			() => {
+				navbar.ariaExpanded = 'false';
+				navbar.classList.remove('animating');
+			},
+			{ once: true }
+		);
+	}
+
+	function resetNavState() {
+		hamburger.classList.remove('active');
+		document.body.style.overflow = '';
+		navbar.style.maxHeight = '';
+		navbar.ariaExpanded = 'false';
+		navbar.classList.remove('animating');
+	}
+</script>
+
+<style>
+	.header {
+		background-color: hsla(0, 0%, 96%, 1);
+		padding: 1rem;
+		position: relative;
+		z-index: 1;
+		box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+	}
+
+	.navbar {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo {
+		font-size: 2rem;
+		font-weight: 900;
+		color: var(--clr-primary);
+	}
+
+	.nav__items {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.hamburger {
+		display: none;
+		width: 3rem;
+		height: 2rem;
+		border: none;
+		padding: 0;
+		border-radius: 0.5rem;
+		overflow: hidden;
+		position: relative;
+		cursor: pointer;
+		z-index: 100;
+	}
+
+	.hamburger .inner,
+	.hamburger .inner::before,
+	.hamburger .inner::after {
+		position: absolute;
+		height: 0.22rem;
+		background: #333;
+		border-radius: 0.25rem;
+		display: block;
+		transition: top 0.2s 0.2s, transform 0.2s, background-color 0.4s 0.2s;
+	}
+
+	.hamburger .inner {
+		width: 78%;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.hamburger .inner::before,
+	.hamburger .inner::after {
+		content: '';
+		left: 0;
+		width: 100%;
+	}
+
+	.hamburger .inner::before {
+		top: -0.75rem;
+	}
+
+	.hamburger .inner::after {
+		top: 0.75rem;
+	}
+
+	.hamburger.active .inner {
+		background-color: transparent;
+		transform: backgorund-color 0.2s;
+	}
+
+	.hamburger.hamburger.active .inner::before {
+		transform: rotate(-45deg);
+		top: 0;
+		transition: top 0.2s, transform 0.2s 0.14s;
+	}
+
+	.hamburger.hamburger.active .inner::after {
+		transform: rotate(45deg);
+		top: 0;
+		transition: top 0.2s, transform 0.2s 0.14s;
+	}
+
+	@media screen and (max-width: 48rem) {
+		.navbar {
+			flex-wrap: wrap;
+		}
+
+		.hamburger {
+			display: block;
+		}
+
+		.nav__items {
+			display: none;
+			order: 1;
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 250ms ease-in-out;
+		}
+
+		.nav__items[aria-expanded='true'] {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+</style>

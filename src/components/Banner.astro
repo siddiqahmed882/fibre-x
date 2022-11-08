@@ -1,0 +1,120 @@
+---
+type Props = {
+	heading: string;
+	lead: string;
+	redirect: string;
+	bgImage: string;
+};
+const { heading, lead, redirect, bgImage } = Astro.props as Props;
+---
+
+<div class="banner" style={`background-image: url(${bgImage})`}>
+	<div class="wrapper">
+		<div class="flex">
+			<h1 class="main-heading">{heading}</h1>
+			<p class="lead">{lead}</p>
+			<a href={redirect} class="btn btn-primary">Get Started Now</a>
+		</div>
+	</div>
+
+	<style>
+		.banner,
+		.wrapper,
+		.flex {
+			height: 100%;
+			width: 100%;
+		}
+
+		.banner {
+			background-color: #333;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			background-blend-mode: overlay;
+
+			color: #fff;
+			padding: 0 80px;
+		}
+
+		.flex {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 2rem;
+			text-align: center;
+
+			max-width: 100ch;
+			margin: 0 auto;
+		}
+
+		.main-heading {
+			font-size: 2rem;
+		}
+
+		.lead {
+			font-size: clamp(3rem, 3rem + 2vw, 6rem);
+			line-height: 1;
+		}
+
+		.current-slide .main-heading {
+			animation: float-in 1000ms ease forwards;
+			opacity: 0;
+		}
+
+		.current-slide .lead {
+			animation: slidein-left 1000ms ease 500ms forwards;
+			opacity: 0;
+		}
+
+		.current-slide .btn {
+			animation: slidein-right 1000ms ease 1000ms forwards;
+			opacity: 0;
+		}
+
+		@keyframes slidein-right {
+			0% {
+				opacity: 0;
+				transform: translateX(-10rem);
+			}
+			50% {
+				opacity: 0;
+				transform: translateX(-2rem);
+			}
+			100% {
+				opacity: 1;
+				transform: 0;
+			}
+		}
+
+		@keyframes slidein-left {
+			0% {
+				opacity: 0;
+				transform: translateX(10rem);
+			}
+			50% {
+				opacity: 0;
+				transform: translateX(2rem);
+			}
+			100% {
+				opacity: 1;
+				transform: 0;
+			}
+		}
+
+		@keyframes float-in {
+			0% {
+				opacity: 0;
+				transform: translateY(10rem);
+			}
+			50% {
+				opacity: 0;
+				transform: translateY(2rem);
+			}
+			100% {
+				opacity: 1;
+				transform: 0;
+			}
+		}
+	</style>
+</div>
