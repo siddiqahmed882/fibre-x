@@ -1,4 +1,6 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
 ---
 
 <header class="header">
@@ -6,10 +8,31 @@
 		<nav class="navbar">
 			<a href="" class="logo">Logo</a>
 			<ul id="nav-items" class="nav__items" aria-expanded="false">
-				<li class="nav__item"><a href="/" class="nav__link">Home</a></li>
-				<li class="nav__item"><a href="/" class="nav__link">About</a></li>
-				<li class="nav__item"><a href="/" class="nav__link">Services</a></li>
-				<li class="nav__item"><a href="/" class="nav__link">Contact</a></li>
+				<li class="nav__item">
+					<a href="/" class={`nav__link ${currentPath === '' ? 'nav-active' : null}`}
+						>Home</a
+					>
+				</li>
+				<li class="nav__item">
+					<a
+						href="/about"
+						class={`nav__link ${currentPath === 'about' ? 'nav-active' : null}`}>About</a
+					>
+				</li>
+				<li class="nav__item">
+					<a
+						href="/services"
+						class={`nav__link ${currentPath === 'services' ? 'nav-active' : null}`}
+						>Services</a
+					>
+				</li>
+				<li class="nav__item">
+					<a
+						href="/contact"
+						class={`nav__link ${currentPath === 'contact' ? 'nav-active' : null}`}
+						>Contact</a
+					>
+				</li>
 			</ul>
 			<button class="hamburger" aria-controls="nav-items">
 				<div class="inner"></div>
@@ -103,6 +126,40 @@
 	.nav__items {
 		display: flex;
 		gap: 1rem;
+		font-size: 1.125rem;
+		font-weight: 500;
+	}
+
+	.nav__link {
+		display: inline-block;
+		transition: color 250ms ease;
+		padding: 0.25rem;
+
+		position: relative;
+	}
+
+	.nav__link::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) scale(0);
+		padding: 0.125rem;
+		border-radius: 50%;
+		background-color: currentColor;
+
+		transition: transform 250ms ease-in-out;
+	}
+
+	.nav__link:hover,
+	.nav__link:focus-visible,
+	.nav__link.nav-active {
+		color: var(--clr-primary-dark);
+	}
+
+	.nav__link:hover::before,
+	.nav__link:focus-visible::before {
+		transform: translateX(-50%) scale(1);
 	}
 
 	.hamburger {

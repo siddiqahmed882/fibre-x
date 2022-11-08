@@ -69,7 +69,7 @@ textarea {
 	width: calc(100% - 2rem);
 	max-width: 1170px;
 	margin: 0 auto;
-	padding: 0 1rem;
+	padding: var(--padding, 0 1rem);
 }
 
 .btn {
