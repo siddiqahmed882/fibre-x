@@ -1,9 +1,14 @@
 ---
+interface Props {
+	title: string;
+	img: string;
+	description: string;
+}
 const {
 	title = 'Custom Software',
 	img = 'https://validthemes.live//themeforest/biness/assets/img/it-solution/icon-2.png',
 	description = 'Offering confined entrance no. Nay rapturous him see something residence. Highly talked do so vulgar.',
-} = Astro.props;
+} = Astro.props as Props;
 ---
 
 <article class="card">
@@ -20,9 +25,10 @@ const {
 		justify-content: center;
 		gap: 2rem;
 
-		max-width: 250px;
+		max-width: 100%;
 		padding: 3rem 2rem;
 		border: 1px solid #ddd;
+		cursor: pointer;
 
 		position: relative;
 		z-index: 1;
@@ -62,12 +68,18 @@ const {
 
 		&__img {
 			order: 0;
-			width: 5rem;
+			width: 6rem;
+			height: 6rem;
+			object-fit: cover;
 		}
 
 		&__description {
 			order: 2;
 			opacity: 0.8;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 4;
+			overflow: hidden;
 		}
 	}
 </style>

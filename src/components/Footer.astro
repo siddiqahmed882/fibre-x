@@ -4,8 +4,9 @@
 			<article class="footer__about">
 				<h3>About</h3>
 				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo eius animi
-					quidem saepe obcaecati. Repudiandae vero quibusdam eum dicta in.
+					FiberX Solution is a newly established Technology firm to provide Small & Medium
+					Enterprise (SME’s) the best & complete end-to-end IT and Business solutions to
+					meet your budget as well as expectations. We believe our:
 				</p>
 				<ul class="social__items">
 					<li class="social__item">
@@ -47,11 +48,14 @@
 				</div>
 				<div class="tel-wrap">
 					<i class="fa-solid fa-phone"></i>
-					<a href="tel:">03048349985</a>
+					<div class="tel-numbers">
+						<a href="tel:+923217786802">0321 7786802</a>
+						<a href="tel:+92213439-7789 ">021 3439-7789</a>
+					</div>
 				</div>
 				<div class="email-wrap">
 					<i class="fa-regular fa-envelope"></i>
-					<a href="mailto:">user@email.com</a>
+					<a href="mailto:fiberxsolutions@outlook.com">fiberxsolutions@outlook.com</a>
 				</div>
 			</article>
 		</div>
@@ -158,10 +162,17 @@
 		.email-wrap,
 		.tel-wrap {
 			display: flex;
-			align-items: flex-start;
+			align-items: center;
 			justify-content: flex-start;
 			gap: 0.75rem;
 			line-height: 1;
+		}
+
+		.tel-numbers > * {
+			display: block;
+			&:first-child {
+				margin-bottom: 0.25rem;
+			}
 		}
 	}
 </style>
