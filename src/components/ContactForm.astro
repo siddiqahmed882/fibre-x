@@ -1,0 +1,95 @@
+<section class="contact">
+	<div class="wrapper">
+		<div class="split contact__container">
+			<div class="left main-content">
+				<header class="contact__header">
+					<h2>Please describe your problem</h2>
+				</header>
+				<form class="contact__form">
+					<div class="input-wrap">
+						<input type="text" id="name" name="name" placeholder="Name" />
+					</div>
+					<div class="input-wrap">
+						<input type="email" id="email" name="email" placeholder="Email" />
+					</div>
+					<div class="input-wrap">
+						<input type="tel" id="phone" name="phone" placeholder="Phone" />
+					</div>
+					<div class="input-wrap">
+						<textarea
+							name="description"
+							id="description"
+							placeholder="State your problem here"></textarea>
+					</div>
+					<div class="input-wrap">
+						<button class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+			</div>
+			<div class="right">
+				<img src="/assets/imgs/img6.png" alt="" />
+			</div>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.contact {
+		padding: 2rem;
+
+		&__container {
+			background-image: url('/assets/imgs/img7.svg');
+		}
+
+		.main-content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			width: 100%;
+
+			> * {
+				width: 100%;
+			}
+		}
+
+		&__header h2 {
+			margin-bottom: 2rem;
+			font-size: 2.5rem;
+			line-height: 1;
+		}
+
+		&__form {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1rem;
+			width: 100%;
+		}
+
+		.input-wrap {
+			width: 100%;
+		}
+	}
+
+	.split {
+		display: flex;
+
+		.left {
+			width: 100%;
+
+			@media screen and (min-width: 1000px) {
+				width: 55%;
+			}
+		}
+
+		.right {
+			display: none;
+
+			@media screen and (min-width: 1000px) {
+				display: block;
+				width: 45%;
+			}
+		}
+	}
+</style>

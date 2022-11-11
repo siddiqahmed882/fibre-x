@@ -1,0 +1,73 @@
+---
+const {
+	title = 'Custom Software',
+	img = 'https://validthemes.live//themeforest/biness/assets/img/it-solution/icon-2.png',
+	description = 'Offering confined entrance no. Nay rapturous him see something residence. Highly talked do so vulgar.',
+} = Astro.props;
+---
+
+<article class="card">
+	<h3 class="card__title">{title}</h3>
+	<img src={img} alt="" class="card__img" />
+	<p class="card__description">{description}</p>
+</article>
+
+<style lang="scss">
+	.card {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 2rem;
+
+		max-width: 250px;
+		padding: 3rem 2rem;
+		border: 1px solid #ddd;
+
+		position: relative;
+		z-index: 1;
+
+		transition: color 250ms ease;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			z-index: -1;
+			background-image: linear-gradient(
+				90deg,
+				rgba(16, 76, 186, 1) 0%,
+				rgba(138, 16, 186, 1) 150%
+			);
+			transform: scaleY(0);
+			transition: transform 250ms ease;
+			transform-origin: bottom;
+		}
+
+		&:hover {
+			color: hsl(var(--clr-neutral-900));
+
+			&::after {
+				transform: scaleY(1);
+			}
+		}
+
+		&__title {
+			order: 1;
+			font-size: 1.5rem;
+		}
+
+		&__img {
+			order: 0;
+			width: 5rem;
+		}
+
+		&__description {
+			order: 2;
+			opacity: 0.8;
+		}
+	}
+</style>

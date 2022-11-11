@@ -1,4 +1,4 @@
-<section class="about-area">
+<section class="about-area mb-6">
 	<div class="wrapper">
 		<div class="grid">
 			<div class="left">
@@ -37,8 +37,9 @@
 		padding: 4rem 0;
 	}
 
-	.grid {
-		grid-template-columns: 1fr 1fr;
+	.left {
+		max-width: 450px;
+		margin: 0 auto;
 	}
 
 	.right {
@@ -110,7 +111,7 @@
 		margin-right: 0.75rem;
 	}
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 1000px) {
 		.about-area {
 			padding: 4rem 0 0;
 		}
@@ -121,6 +122,7 @@
 
 		.left {
 			transform: translateY(6rem);
+			max-width: 100%;
 		}
 	}
 </style>

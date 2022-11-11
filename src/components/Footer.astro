@@ -1,0 +1,167 @@
+<footer class="footer">
+	<div class="wrapper">
+		<div class="footer__grid">
+			<article class="footer__about">
+				<h3>About</h3>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo eius animi
+					quidem saepe obcaecati. Repudiandae vero quibusdam eum dicta in.
+				</p>
+				<ul class="social__items">
+					<li class="social__item">
+						<a href="" class="social__link"><i class="fa-brands fa-facebook-f"></i></a>
+					</li>
+					<li class="social__item">
+						<a href="" class="social__link"><i class="fa-brands fa-linkedin-in"></i></a>
+					</li>
+					<li class="social__item">
+						<a href="" class="social__link"><i class="fa-brands fa-twitter"></i></a>
+					</li>
+				</ul>
+			</article>
+			<article class="footer__nav">
+				<h3>Useful Links</h3>
+				<ul class="footer__nav-items">
+					<li class="footer__nav-item">
+						<a href="/" class="footer__nav-link">Home</a>
+					</li>
+					<li class="footer__nav-item">
+						<a href="/about" class="footer__nav-link">About</a>
+					</li>
+					<li class="footer__nav-item">
+						<a href="/services" class="footer__nav-link">Services</a>
+					</li>
+					<li class="footer__nav-item">
+						<a href="/contact" class="footer__nav-link">Contact</a>
+					</li>
+				</ul>
+			</article>
+			<article class="footer__contact">
+				<h3>Contact Us</h3>
+				<div class="address-wrap">
+					<i class="fa-solid fa-map-location-dot"></i>
+					<address>
+						22 Baker Street, Koenigstrasse 65, Bad Sülze, Mecklenburg-Vorpommern,
+						Philippines
+					</address>
+				</div>
+				<div class="tel-wrap">
+					<i class="fa-solid fa-phone"></i>
+					<a href="tel:">03048349985</a>
+				</div>
+				<div class="email-wrap">
+					<i class="fa-regular fa-envelope"></i>
+					<a href="mailto:">user@email.com</a>
+				</div>
+			</article>
+		</div>
+		<div class="footer__copyright">
+			Copyright &copy; {new Date().getFullYear().toString()}, All Rights Reserved.
+		</div>
+	</div>
+</footer>
+
+<style lang="scss">
+	.footer {
+		background-color: hsl(217, 48%, 13%);
+		color: hsl(var(--clr-neutral-900), 0.9);
+
+		&__grid {
+			padding: 5rem 0;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+			gap: 2rem;
+
+			border-bottom: 1px solid hsl(var(--clr-neutral-900), 0.1);
+		}
+
+		&__copyright {
+			padding: 2rem 0;
+			text-align: center;
+		}
+
+		&__about h3,
+		&__nav h3,
+		&__contact h3 {
+			font-size: 1.75rem;
+			margin-bottom: 2rem;
+			color: hsl(var(--clr-neutral-900));
+		}
+
+		&__about p {
+			margin-bottom: 1.5rem;
+		}
+
+		.social__items {
+			display: flex;
+			gap: 1rem;
+		}
+
+		.social__link {
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background-color: hsl(var(--clr-neutral-900), 0.1);
+			outline: 1px solid transparent;
+			transition: all 250ms ease-in-out;
+
+			&:hover,
+			&:focus-visible {
+				outline-color: hsl(var(--clr-neutral-900), 0.5);
+				outline-offset: 2px;
+			}
+		}
+
+		&__nav-items {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+
+		&__nav-link {
+			padding: 0.125rem 0;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5rem;
+			transition: transform 250ms ease;
+
+			&::before {
+				content: '\f054';
+				font-style: normal;
+				font-variant: normal;
+				line-height: 1;
+				text-rendering: auto;
+				font-family: 'Font Awesome 6 Free';
+				font-weight: 600;
+				font-size: 0.75rem;
+			}
+
+			&:hover,
+			&:focus-visible {
+				transform: translateX(0.5rem);
+			}
+		}
+
+		.footer__contact {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			gap: 1rem;
+		}
+
+		.address-wrap,
+		.email-wrap,
+		.tel-wrap {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			gap: 0.75rem;
+			line-height: 1;
+		}
+	}
+</style>

@@ -1,22 +1,36 @@
 ---
-import CardOne from './CardOne.astro';
+import CardTwo from './CardTwo.astro';
 ---
 
 <section class="features mb-4">
 	<div class="wrapper">
+		<header class="features__header">
+			<p class="bullet-before">What we do</p>
+			<h2>Providing IT solutions</h2>
+		</header>
 		<div class="flex">
-			<CardOne />
-			<CardOne />
-			<CardOne />
+			<CardTwo />
+			<CardTwo />
+			<CardTwo />
+			<CardTwo />
 		</div>
 	</div>
 </section>
 
-<style>
+<style lang="scss">
 	.flex {
 		--gap: 1.5rem;
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.features__header {
+		margin-bottom: 3rem;
+		text-align: center;
+
+		h2 {
+			font-size: 2.5rem;
+		}
 	}
 </style>
