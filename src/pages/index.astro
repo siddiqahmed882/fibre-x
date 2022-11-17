@@ -2,15 +2,18 @@
 import AboutArea from '../components/AboutArea.astro';
 import Carousel from '../components/Carousel.astro';
 import ContactForm from '../components/ContactForm.astro';
-import Features from '../components/Features.astro';
+import Services from '../components/Services.astro';
 import Layout from '../layout/Layout.astro';
+
+const services = await Astro.glob('../services-markdown/*.md');
 ---
 
 <Layout>
-	<main>
-		<Carousel />
-		<Features />
-		<AboutArea />
-		<ContactForm />
-	</main>
+	<Carousel />
+	<Services
+		services={services.filter((service) => service.frontmatter.featured)}
+		seeMore={true}
+	/>
+	<AboutArea />
+	<ContactForm />
 </Layout>

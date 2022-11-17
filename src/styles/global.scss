@@ -6,7 +6,6 @@
 	--clr-neutral-900: 0, 0%, 96%;
 	--clr-neutral-100: 0, 0%, 0%;
 }
-
 *,
 *::before,
 *::after {
@@ -18,6 +17,14 @@
 body {
 	line-height: 1.5;
 	color: #000;
+	min-height: 100vh;
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex-grow: 1;
 }
 
 h1,
@@ -35,17 +42,17 @@ ul {
 	list-style: none;
 }
 
-img {
-	display: block;
-	max-width: 100%;
-}
-
 button {
 	outline: none;
 	border: none;
 	background: transparent;
 	font-size: inherit;
 	font-family: inherit;
+}
+
+img {
+	display: block;
+	max-width: 100%;
 }
 
 label,
@@ -83,7 +90,7 @@ textarea {
 	width: calc(100% - 2rem);
 	max-width: 1170px;
 	margin: 0 auto;
-	padding: var(--padding, 0 1rem);
+	padding: var(--padding, 0 min(1rem, 1vw));
 }
 
 .btn {
@@ -95,6 +102,12 @@ textarea {
 	overflow: hidden;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.btn:disabled {
+	opacity: 0.7;
+	pointer-events: none;
+	cursor: auto;
 }
 
 .btn-primary {
@@ -145,4 +158,91 @@ textarea {
 			rgba(138, 16, 186, 1) 150%
 		);
 	}
+}
+
+// Markdown
+
+.raw-html {
+	* {
+		margin: revert;
+		padding: revert;
+		box-sizing: border-box;
+	}
+
+	body {
+		line-height: 1.5;
+		color: #000;
+	}
+
+	h1,
+	h2,
+	h3 {
+		line-height: 1.2;
+		margin-bottom: 0.25em;
+	}
+
+	img {
+		max-width: 70%;
+		max-height: 70vh;
+		object-fit: cover;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	ul {
+		list-style: revert;
+	}
+}
+
+// Alerts
+.alert {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1rem;
+	padding: 0.75em 1.25em;
+	border: 1px solid;
+	border-radius: 0.25rem;
+	animation: fadeOut ease forwards 5000ms;
+}
+
+.alert.success {
+	color: #155724;
+	background: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.alert.danger {
+	color: #721c24;
+	background: #f8d7da;
+	border-color: #f5c6cb;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0.2;
+		transform: translateY(-200px);
+	}
+}
+
+// Form errors
+.err {
+	display: inline-block;
+	color: #af1d2b;
+	margin-top: 0.5rem;
 }

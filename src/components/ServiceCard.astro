@@ -1,31 +1,28 @@
 ---
-interface Props {
-	title: string;
-	img: string;
-	description: string;
-}
-const {
-	title = 'Custom Software',
-	img = 'https://validthemes.live//themeforest/biness/assets/img/it-solution/icon-2.png',
-	description = 'Offering confined entrance no. Nay rapturous him see something residence. Highly talked do so vulgar.',
-} = Astro.props as Props;
+const { service } = Astro.props;
 ---
 
-<article class="card">
-	<h3 class="card__title">{title}</h3>
-	<img src={img} alt="" class="card__img" />
-	<p class="card__description">{description}</p>
+<article>
+	<a class="card" href={`/services/${service.frontmatter.slug}`}>
+		<h3 class="card__title">{service.frontmatter.title}</h3>
+		<img src={service.frontmatter.image} alt="" class="card__img" />
+		<p class="card__description">{service.frontmatter.excerpt}</p>
+	</a>
 </article>
 
 <style lang="scss">
+	article {
+		max-width: 350px;
+		width: 100%;
+	}
 	.card {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
 		gap: 2rem;
-
-		max-width: 100%;
+		width: 100%;
+		height: 100%;
 		padding: 3rem 2rem;
 		border: 1px solid #ddd;
 		cursor: pointer;

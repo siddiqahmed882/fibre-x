@@ -8,7 +8,7 @@ type Props = {
 const { heading, lead, redirect, bgImage } = Astro.props as Props;
 ---
 
-<div class="banner" style={`background-image: url(${bgImage})`}>
+<div class="carousel-banner" style={`background-image: url(${bgImage})`}>
 	<div class="wrapper">
 		<div class="flex">
 			<h1 class="main-heading">{heading}</h1>
@@ -18,15 +18,15 @@ const { heading, lead, redirect, bgImage } = Astro.props as Props;
 	</div>
 </div>
 
-<style>
-	.banner,
+<style lang="scss">
+	.carousel-banner,
 	.wrapper,
 	.flex {
 		height: 100%;
 		width: 100%;
 	}
 
-	.banner {
+	.carousel-banner {
 		background-color: #333;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -34,7 +34,7 @@ const { heading, lead, redirect, bgImage } = Astro.props as Props;
 		background-blend-mode: overlay;
 
 		color: #fff;
-		padding: 0 80px;
+		padding: 0 min(80px, 2vw);
 	}
 
 	.flex {
@@ -115,6 +115,17 @@ const { heading, lead, redirect, bgImage } = Astro.props as Props;
 		100% {
 			opacity: 1;
 			transform: 0;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.main-heading {
+			font-size: 1.5rem;
+		}
+
+		.lead {
+			font-size: clamp(2.5rem, 2.5rem + 2vw, 4rem);
+			line-height: 1;
 		}
 	}
 </style>

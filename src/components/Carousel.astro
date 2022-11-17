@@ -1,12 +1,12 @@
 ---
-import Banner from './Banner.astro';
+import CarouselSlide from './CarouselSlide.astro';
 ---
 
 <section class="carousel mb-4">
 	<div class="carousel__track-container">
 		<div class="carousel__track">
 			<div class="carousel__slide">
-				<Banner
+				<CarouselSlide
 					heading="Optimize It Solutions"
 					lead="Creating A Better IT Solutions"
 					redirect="/"
@@ -14,7 +14,7 @@ import Banner from './Banner.astro';
 				/>
 			</div>
 			<div class="carousel__slide">
-				<Banner
+				<CarouselSlide
 					heading="Include more sales"
 					lead="Transform Every	Digital Process"
 					redirect="/"
@@ -68,7 +68,7 @@ import Banner from './Banner.astro';
 			slide.dataset.index = index;
 			if (index === 1) {
 				slide.classList.add('current-slide');
-				slide.querySelector('.banner').classList.add('current-slide');
+				slide.querySelector('.carousel-banner').classList.add('current-slide');
 			}
 		});
 
@@ -82,10 +82,10 @@ import Banner from './Banner.astro';
 		prevBtn.removeEventListener('click', moveToPrevSlide);
 		nextBtn.removeEventListener('click', moveToNextSlide);
 		track.style.transform = `translateX( ${Number(targetSlide.dataset.index) * -100}%)`;
-		currentSlide.querySelector('.banner').classList.remove('current-slide');
+		currentSlide.querySelector('.carousel-banner').classList.remove('current-slide');
 		currentSlide.classList.remove('current-slide');
 		targetSlide.classList.add('current-slide');
-		targetSlide.querySelector('.banner').classList.add('current-slide');
+		targetSlide.querySelector('.carousel-banner').classList.add('current-slide');
 		clearInterval(intervalId);
 		intervalId = setInterval(moveToNextSlide, 6000);
 	}
@@ -112,14 +112,14 @@ import Banner from './Banner.astro';
 		if (!currentSlide.dataset.replaceScroll) return;
 		const targetSlide = slides[Number(currentSlide.dataset.replaceScroll)];
 		track.style.transform = `translateX( ${Number(targetSlide.dataset.index) * -100}%)`;
-		currentSlide.querySelector('.banner').classList.remove('current-slide');
+		currentSlide.querySelector('.carousel-banner').classList.remove('current-slide');
 		currentSlide.classList.remove('current-slide');
 		targetSlide.classList.add('current-slide');
-		targetSlide.querySelector('.banner').classList.add('current-slide');
+		targetSlide.querySelector('.carousel-banner').classList.add('current-slide');
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.carousel {
 		height: calc(100vh - 80px);
 		width: 100%;
@@ -179,6 +179,10 @@ import Banner from './Banner.astro';
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+
+		@media screen and (max-width: 768px) {
+			display: none;
+		}
 	}
 
 	.carousel__btn--left {

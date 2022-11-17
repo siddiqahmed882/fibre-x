@@ -1,0 +1,39 @@
+---
+import PageBanner from '../../components/PageBanner.astro';
+import Services from '../../components/Services.astro';
+import Layout from '../../layout/Layout.astro';
+
+export async function getStaticPaths() {
+	const services = await Astro.glob('../../services-markdown/*.md');
+	return services.map((service) => ({
+		params: {
+			slug: service.frontmatter.slug,
+		},
+		props: {
+			service,
+			services,
+		},
+	}));
+}
+
+const { Content, frontmatter } = Astro.props.service;
+---
+
+<Layout>
+	<PageBanner title={frontmatter.title} />
+	<div class="wrapper raw-html mb-4">
+		<section class="card">
+			<Content />
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.card {
+		background: #fff;
+		padding: 2rem;
+		border-radius: 10px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		margin-bottom: 20px;
+	}
+</style>

@@ -1,0 +1,50 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const { services, seeMore } = Astro.props;
+---
+
+<section class="features mb-4">
+	<div class="wrapper">
+		<header class="features__header" style={seeMore ? 'margin-bottom: 1rem' : null}>
+			<p class="bullet-before">What we do</p>
+			<h2>Providing IT solutions</h2>
+			{
+				seeMore ? (
+					<a href="/services" class="btn btn-primary">
+						See More
+					</a>
+				) : null
+			}
+		</header>
+		<div class="features__cards">
+			{services.map((service) => <ServiceCard service={service} />)}
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.features__cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-auto-rows: 1fr;
+		gap: 1.5rem;
+	}
+
+	.features__header {
+		text-align: center;
+		margin-bottom: 3rem;
+
+		h2 {
+			font-size: 2.5rem;
+			margin-bottom: 1rem;
+		}
+
+		.btn {
+			display: block;
+			width: fit-content;
+			margin-left: auto;
+			font-size: 0.875rem;
+		}
+	}
+</style>
