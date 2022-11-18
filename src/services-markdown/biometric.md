@@ -3,7 +3,7 @@ title: Biometric
 slug: biometric
 excerpt: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam vero dolores ad illo nostrum harum rem? Placeat, temporibus, molestiae doloremque excepturi non.
 image: /assets/imgs/biometric.png
-featured: true
+featured: false
 ---
 
 # Biometric

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Poppins:wght@200;300;400;500;600&display=swap');
+
 :root {
 	--clr-primary: hsl(198, 95%, 36%);
 	--clr-primary-dark: hsl(219, 84%, 40%);
@@ -26,6 +28,7 @@ body {
 	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
+	font-family: 'Poppins', sans-serif;
 }
 
 main {
@@ -36,6 +39,7 @@ h1,
 h2,
 h3 {
 	line-height: 1.2;
+	font-family: 'Montserrat', sans-serif;
 }
 
 a {
