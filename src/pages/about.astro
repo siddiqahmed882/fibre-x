@@ -43,9 +43,9 @@ const services = await Astro.glob('../services-markdown/*.md');
 	/>
 </Layout>
 
-<style>
+<style lang="scss">
 	.about-area .wrapper {
-		--padding: 0 4rem;
+		--padding: 0 2rem;
 	}
 
 	.about-area__content {
@@ -62,11 +62,8 @@ const services = await Astro.glob('../services-markdown/*.md');
 		box-shadow: 1px 4px 20px -2px rgb(0 0 0 / 10%);
 		padding: 10px;
 		background: #ffffff;
-		width: 50%;
-	}
-
-	.about-area__images img:nth-child(1) {
-		margin-top: 8rem;
+		width: 45%;
+		margin: 0 auto;
 	}
 
 	.about-area__header h2 {
@@ -101,8 +98,23 @@ const services = await Astro.glob('../services-markdown/*.md');
 	}
 
 	@media screen and (min-width: 768px) {
+		.about-area .wrapper {
+			--padding: 0 3rem;
+		}
 		.about-area .grid {
 			grid-template-columns: 1fr 1fr;
+		}
+
+		.about-area__images {
+			--gap: 1rem;
+
+			img {
+				height: 70%;
+
+				&:nth-child(1) {
+					margin-top: 30%;
+				}
+			}
 		}
 	}
 </style>

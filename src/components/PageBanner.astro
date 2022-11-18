@@ -1,5 +1,6 @@
 ---
 import { PageBannerProps } from '../interfaces';
+
 const { title, imageUrl = '/assets/imgs/img2.jpg' } = Astro.props as PageBannerProps;
 ---
 
@@ -20,6 +21,7 @@ const { title, imageUrl = '/assets/imgs/img2.jpg' } = Astro.props as PageBannerP
 		background-position: center center;
 		background-blend-mode: overlay;
 
+		padding: 0 1rem;
 		color: #fff;
 
 		.wrapper,
@@ -34,8 +36,9 @@ const { title, imageUrl = '/assets/imgs/img2.jpg' } = Astro.props as PageBannerP
 		}
 
 		.main-heading {
-			font-size: clamp(3rem, 2rem + 2vw, 6rem);
+			font-size: clamp(2rem, 2rem + 2vw, 6rem);
 			text-transform: capitalize;
+			text-align: center;
 		}
 	}
 </style>

@@ -1,11 +1,7 @@
 ---
-type Props = {
-	heading: string;
-	lead: string;
-	redirect: string;
-	bgImage: string;
-};
-const { heading, lead, redirect, bgImage } = Astro.props as Props;
+import { CarouselSlideProps } from '../interfaces';
+
+const { heading, lead, redirect, bgImage } = Astro.props as CarouselSlideProps;
 ---
 
 <div class="carousel-banner" style={`background-image: url(${bgImage})`}>

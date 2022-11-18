@@ -5,7 +5,12 @@
 
 	--clr-neutral-900: 0, 0%, 96%;
 	--clr-neutral-100: 0, 0%, 0%;
+
+	@media screen and (max-width: 500px) {
+		font-size: 14px;
+	}
 }
+
 *,
 *::before,
 *::after {
